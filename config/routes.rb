@@ -1,0 +1,22 @@
+Rails.application.routes.draw do
+  get 'enrollments/index'
+  get 'enrollments/new'
+  post 'enrollments/create'
+  delete 'enrollments/destroy'
+  get 'courses/index'
+  get 'courses/new'
+  post 'courses/create'
+  get 'courses/show'
+  get 'courses/edit'
+  patch 'courses/update'
+  get 'courses/destroy'
+  get 'students/index'
+  get 'students/new'
+  post 'students/create'
+  get 'students/show'
+  get 'students/edit'
+  patch 'students/update'
+  get 'students/destroy'
+  # student_index => 'student/index'
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end
