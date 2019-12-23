@@ -1,0 +1,172 @@
+<html lang="en">
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../static/css/bootstrap.css">   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>AAiT Kit</title>
+
+        <!--INLINE CSS-->
+        <style>
+        
+        </style>
+        
+        <body>
+
+            <!--Nav Bar-->
+            <nav class="navbar navbar-dark bg-dark navbar-expand-sm p-0">
+                <div class="container text-sm">
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#nav">
+                        <i class="navbar-toggler-icon"></i> 
+                    </button>
+                    <a href="" class="navbar-brand" >AAiT Student Management Kit</a>
+                    <div class="navbar-collapse collapse" id="nav">
+                        <div class="navbar-nav">
+                            <div class="nav-item px-2"><a class="nav-link" href="">Dashbord</a></div>
+                            <div class="nav-item px-2"><a class="nav-link" href="/students/index">Studnets</a></div>
+                            <div class="nav-item px-2"><a class="nav-link" href="/courses/index">Courses</a></div>
+                            <div class="nav-item px-2"><a class="nav-link" href="/enrollments/index">Enrollments</a></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+            <!--Nav Bar 2-->
+            <nav class="navbar navbar-info bg-info navbar-expand-sm py-1">
+                <div class="container">
+                    <h1 class="navbar-brand text-light">
+                        <i class="fa fa-gear "></i> Courses Dashbord
+                    </h1>
+                </div>
+            </nav>
+
+            <!--Header-->
+            <header class="py-4 bg-light">
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-sm ">
+                            <button class="w-100 btn btn-info" data-toggle="modal" data-target="#post">
+                                <i class="fa fa-plus"> <%= link_to "Add New Studnets",students_new_path,method: :get %></i>
+                            </button>
+                        </div>
+                        <div class="col-sm ">
+                            <button class="w-100 btn btn-success">
+                                <i class="fa fa-plus"> <%= link_to "Add New Courses",courses_new_path,method: :get %></i>
+                            </button>
+                        </div>
+                        <div class="col-sm ">
+                            <button class=" w-100 btn btn-warning">
+                                <i class="fa fa-plus"> <%= link_to "Add New Enrollments",enrollments_new_path,method: :get %></i>
+                            </button>
+                        </div>
+                        <div class="col-sm-4">
+                            
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <section class="py-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="card px-0">
+                                 <div class="card-header"> <div class="card-title">Courses List</div></div>
+                            <table class="card-body table table-striped">
+                              <thead class="table-inverse">
+                                <tr>
+                                  <th>#</th>
+                                  <th>Name</th>
+                                  <th>Course Code</th>
+                                  <th>Credit Hour</th>
+                                  <th>ECTS</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% @courses.each do |course|  %>
+                                    <tr>
+                                    <td><%= course.id %></td>
+                                    <td><%= course.name %></td>
+                                    <td><%= course.couse_code %></td>
+                                    <td><%= course.credit_hour %></td>
+                                    <td><%= course.ects %></td>
+                                    <td> <button class="btn btn-secondary" style="background: white !important;"><%= link_to "Details", courses_show_path({"id"=>course.id}) %> <i class="fa fa-angle-double-right"></i> </button> </td>
+                                    </tr>
+                                <% end %>
+                              </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mx-4">
+                            
+                            <div class="row bg-info text-white p-4 text-center mb-2 ">
+                                <div class="col-sm-12 font-weight-bold">Courses</div>
+                                <div class="col-sm-12 h1 display-4"><i class="fa fa-pencil"></i> <%=(Course.last.id)%></div>
+                                <div class="col-sm-12">
+                                    <button class="btn btn-outline-light" style="background: white !important;"><%= link_to "View",courses_new_path,method: :get %></button>
+                                </div>
+                            </div>
+
+                            <div class="row bg-success text-white p-4 text-center mb-2 ">
+                                <div class="col-sm-12 font-weight-bold">Students</div>
+                                <div class="col-sm-12 h1 display-4"><i class="fa fa-pencil"></i> <%=(Student.last.id)%></div>
+                                <div class="col-sm-12">
+                                    <button class="btn btn-outline-light" style="background: white !important;"><%= link_to "View",students_new_path,method: :get %></button>
+                                </div>
+                            </div>
+
+                            <div class="row bg-warning text-white p-4 text-center mb-2 ">
+                                <div class="col-sm-12 font-weight-bold">Enrollments</div>
+                                <div class="col-sm-12 h1 display-4"><i class="fa fa-pencil"></i> <%=(Enrollment.last.id)%></div>
+                                <div class="col-sm-12">
+                                    <button class="btn btn-outline-light" style="background: white !important;"><%= link_to "View",enrollments_new_path,method: :get %></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="p-4 bg-dark text-light">
+                    <div class="text-center text-muted">
+                        Copyright &copy; 2017 AAiT 
+                    </div>
+                </div>
+            </footer>
+
+        </body>
+ 
+
+<div class="row">
+        <div class="modal fade col-8 my-4 mx-auto " id="post">
+                <div class="modal-dailog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-light">
+                            <div class="modal-title">Add Post</div>
+                            <button class="close" data-dismiss="modal" >&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            please add a post here...
+                            <textarea name="" id="" cols="5" rows="10" class="form-control d-block"></textarea>
+                            <button class="btn btn-outline-primary ml-auto d-block my-2">Add</button>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="text-muted">posts will be displayed</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+</div>
+       
+         
+        <script src="../static/js/jquery-3.3.1.js"></script>
+        <script src="../static/js/popper.min.js"></script>
+        <script src="../static/js/bootstrap.min.js"></script>
+        <script src="../static/js/navbar-fixed.js"></script>
+</html>

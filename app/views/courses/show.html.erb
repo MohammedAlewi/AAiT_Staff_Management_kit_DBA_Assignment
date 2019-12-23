@@ -1,0 +1,117 @@
+<html lang="en">
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../static/css/bootstrap.css">   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Bootstrap Sandbox</title>
+
+        <!--INLINE CSS-->
+        <style>
+        
+        </style>
+        
+        <body>
+
+            <!--Nav Bar-->
+            <nav class="navbar navbar-dark bg-dark navbar-expand-sm p-0">
+                <div class="container text-sm">
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#nav">
+                        <i class="navbar-toggler-icon"></i> 
+                    </button>
+                    <a href="" class="navbar-brand" >AAiT Student Management Kit</a>
+                    <div class="navbar-collapse collapse" id="nav">
+                        <div class="navbar-nav">
+                            <div class="nav-item px-2"><a class="nav-link" href="">Dashbord</a></div>
+                            <div class="nav-item px-2"><a class="nav-link" href="/students/index">Studnets</a></div>
+                            <div class="nav-item px-2"><a class="nav-link" href="/courses/index">Courses</a></div>
+                            <div class="nav-item px-2"><a class="nav-link" href="/enrollments/index">Enrollments</a></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+                        <nav class="navbar navbar-info bg-info navbar-expand-sm py-1">
+                <div class="container">
+                    <h1 class="navbar-brand text-light">
+                        <i class="fa fa-gear "></i> Course Description
+                    </h1>
+                </div>
+            </nav>
+
+            <section>
+                <div class="container my-4">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="card">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title"><%= @course.name %>'s Page</h5>
+                                    </div>
+                                    <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="">Name</label>
+                                                <input readonly type="text" value="<%= @course.name%> " class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Couse code</label>
+                                                <input readonly type="text" value="<%= @course.couse_code%> " class="form-control">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="">Credit Hour</label>
+                                                <input readonly type="text" value="<%= @course.credit_hour%> " class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">ECTS</label>
+                                                <input readonly type="text" value="<%= @course.ects%> " class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Course Description</label>
+                                                <textarea readonly row="12"  col="12" class="form-control">
+                                                        <%= @course.course_description%>
+                                                </textarea>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 ml-auto">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-info w-100 mt-4">
+                                        <%= link_to "Edit Course", courses_edit_path({"id"=>@course.id}) %>  
+                                    </button>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success w-100 mt-2">
+                                        <%= link_to "Delete Course", courses_destroy_path({"id"=>@course.id}) %>
+                                    </button>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button class="btn btn-warning w-100 mt-2" >
+                                        <%= link_to "Add Course",courses_new_path,method: :get %>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="bg-dark py-4 text-center mt-4">
+                <span class="text-muted">copyright &copy; 2017 AAiT</span>
+            </footer>
+
+          
+        </body>
+                
+        <script src="../static/js/jquery-3.3.1.js"></script>
+        <script src="../static/js/popper.min.js"></script>
+        <script src="../static/js/bootstrap.min.js"></script>
+        <script src="../static/js/navbar-fixed.js"></script>
+</html>
+

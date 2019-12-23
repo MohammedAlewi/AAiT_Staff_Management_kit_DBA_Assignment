@@ -1,0 +1,107 @@
+<html lang="en">
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../static/css/bootstrap.css">   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>AAiT </title>
+
+        <!--INLINE CSS-->
+        <style>
+        
+        </style>
+        
+        <body>
+
+            <!--Nav Bar-->
+            <nav class="navbar navbar-dark bg-dark navbar-expand-sm p-0">
+                <div class="container text-sm">
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#nav">
+                        <i class="navbar-toggler-icon"></i> 
+                    </button>
+                    <a href="" class="navbar-brand" >AAiT Student Management Kit</a>
+                    <div class="navbar-collapse collapse" id="nav">
+                        <div class="navbar-nav">
+                            <div class="nav-item px-2"><a class="nav-link" href="">Dashbord</a></div>
+                            <div class="nav-item px-2"><a class="nav-link" href="/students/index">Studnets</a></div>
+                            <div class="nav-item px-2"><a class="nav-link" href="/courses/index">Courses</a></div>
+                            <div class="nav-item px-2"><a class="nav-link" href="/enrollments/index">Enrollments</a></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+                        <nav class="navbar navbar-info bg-info navbar-expand-sm py-1">
+                <div class="container">
+                    <h1 class="navbar-brand text-light">
+                        <i class="fa fa-gear "></i> Course Page
+                    </h1>
+                </div>
+            </nav>
+
+            <section>
+                <div class="container my-4">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="card">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Course Create Page</h5>
+                                        <% if flash[:errors] %>
+                                            <% flash[:errors].each do |error| %>
+                                                <p style="text-danger" ><%= error %></p> 
+                                            <% end %>
+                                        <% end %>
+
+                                    </div>
+                                    <div class="card-body">
+                                    <%= form_for @course, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+                                            <div class="form-group">
+                                                <label for="">Name</label>
+                                                <div > <%= f.text_field :name%></div>
+                                                <div > <%= f.hidden_field :id%></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Course Code</label>
+                                               <div > <%= f.text_field :couse_code%></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Credit Hour</label>
+                                                <div > <%= f.text_field :credit_hour%></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">ECTS</label>
+                                                <div > <%= f.text_field :ects%></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Course Description</label>
+                                               <div > <%= f.text_area :course_description%></div>
+                                            </div>
+                                    
+                                             <div   > <%= f.submit "Create" %></div> 
+                                        <% end %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <footer class="bg-dark py-4 text-center mt-4">
+                <span class="text-muted">copyright &copy; 2017 AAiT</span>
+            </footer>
+
+          
+        </body>
+                
+        <script src="../static/js/jquery-3.3.1.js"></script>
+        <script src="../static/js/popper.min.js"></script>
+        <script src="../static/js/bootstrap.min.js"></script>
+        <script src="../static/js/navbar-fixed.js"></script>
+</html>
+
