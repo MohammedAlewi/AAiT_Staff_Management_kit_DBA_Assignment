@@ -1,24 +1,7 @@
-# README
+# AAiT Staff Kit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
+It is a simple crud application which is built using ruby on rails version 6.0 
+It enables registrar staffs to add new students and preform all sorts of crud opreations
+it also enables to add and register courses to students and also additional crud opreations on the course object
+it also contain a way of enrolling and droping courses to students...
 * ...
